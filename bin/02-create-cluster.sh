@@ -23,6 +23,8 @@ RESOURCES=(
   "gitlab_config_map"
   "gitlab_server_pod"
   "gitlab_server_service"
+  "sonarqube_server_pod"
+  "sonarqube_server_service"
 )
 for resource in ${RESOURCES[@]}; do
   echo "-- Creating the resource ${resource}"

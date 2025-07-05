@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sonarqube-app
+  labels:
+    app: sonarqube_server
+spec:
+  volumes:
+    - name: sonarqube-data
+      hostPath:
+        path: /storage_homes/sonarqube/data
+    - name: sonarqube-extensions
+      hostPath:
+        path: /storage_homes/sonarqube/extensions
+    - name: sonarqube-logs
+      hostPath:
+        path: /storage_homes/sonarqube/logs
+  containers:
+    - name: sonarqube-server
+      image: docker.io/library/sonarqube:25.6.0.109173-community
+      imagePullPolicy: Never
+      resources:
+      volumeMounts:
+        - name: sonarqube-data
+          mountPath: /opt/sonarqube/data
+        - name: sonarqube-extensions
+          mountPath: /opt/sonarqube/extensions
+        - name: sonarqube-logs
+          mountPath: /opt/sonarqube/logs
+      ports:
+        - containerPort: 9000
+          name: sqube-http-port
