@@ -32,5 +32,3 @@ spec:
           name: glab-ssh-port
         - containerPort: 80
           name: glab-http-port
-        - containerPort: 443
-          name: glab-https-port

@@ -20,10 +20,10 @@ done
 
 # Instaling resources
 RESOURCES=(
-  "gitlab_config_map"
+  "git_cli_pod"
   "gitlab_server_pod"
-  "gitlab_server_service"
   "sonarqube_server_pod"
+  "gitlab_server_service"
   "sonarqube_server_service"
 )
 for resource in ${RESOURCES[@]}; do

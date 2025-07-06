@@ -9,6 +9,6 @@ done
 
 # Building local images.
 for image in ${IMAGES[@]}; do
-  podman build -f "${DOCKERFILE_DIR}/${image}.dockerfile" -t "${image}:latest" 
-  podman save --format oci-archive -o "${IMAGES_DIR}/${image}.tar" "localhost/${image}:latest"
+  ${CONTAINER_DRIVER} build -f "${DOCKERFILE_DIR}/${image}.dockerfile" -t "${image}:latest" 
+  ${CONTAINER_DRIVER} save --format oci-archive -o "${IMAGES_DIR}/${image}.tar" "localhost/${image}:latest"
 done

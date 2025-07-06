@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: gitlab-config-map
-data:
-  gitlab_server: gitlab-server-service

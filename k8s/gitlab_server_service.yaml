@@ -15,7 +15,3 @@ spec:
     name: http-port
     targetPort: glab-http-port
     nodePort: 30080
-  - port: 443
-    name: https-port
-    targetPort: glab-https-port
-    nodePort: 30443

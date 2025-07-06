@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: git-cli
+  labels:
+    app: git_cli
+spec:
+  volumes:
+    - name: cli-homes
+      hostPath:
+        path: /cli_homes
+    - name: git-projects-home
+      hostPath:
+        path: /projects_home
+  containers:
+    - name: git-cli
+      image: localhost/git_cli:latest
+      imagePullPolicy: Never
+      command: ["tail"]
+      args: ["-f", "/dev/null"]
+      workingDir: /apps
+      resources:
+      volumeMounts:
+        - name: cli-homes
+          mountPath: /home
+        - name: git-projects-home
+          mountPath: /apps
