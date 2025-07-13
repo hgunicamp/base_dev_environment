@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Use: ${command} [project-dir-name]
+# Use: ${command} [git-cli-dir-name]
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 source "${SCRIPT_DIR}/.env"
