@@ -6,24 +6,24 @@ source "${SCRIPT_DIR}/.env"
 systemd-run --scope --user -p "Delegate=yes" \
   kind create cluster --config="${CLUSTER_HOME}/kind_cluster.yaml"
 
-# Instaling external images.
+# Installing external images.
 for image in ${EXTERNAL_IMAGES[@]}; do
   echo "-- Uploading the image ${image}"
   kind --name "${ClUSTER_NAME}" load image-archive "${IMAGES_DIR}/${image}.tar"
 done
 
-# Instaling local images.
+# Installing local images.
 for image in ${IMAGES[@]}; do
   echo "-- Uploading the image ${image}"
   kind --name "${ClUSTER_NAME}" load image-archive "${IMAGES_DIR}/${image}.tar"
 done
 
-# Instaling resources
+# Installing resources
 RESOURCES=(
   "git_cli_pod"
-  "gitlab_server_pod"
+  "gitea_server_pod"
   "sonarqube_server_pod"
-  "gitlab_server_service"
+  "gitea_server_service"
   "sonarqube_server_service"
 )
 for resource in ${RESOURCES[@]}; do

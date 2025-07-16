@@ -6,9 +6,9 @@ metadata:
     app: git_cli
 spec:
   volumes:
-    - name: cli-homes
+    - name: git-home
       hostPath:
-        path: /cli_homes
+        path: /cli_homes/git_home
     - name: git-projects-home
       hostPath:
         path: /projects_home
@@ -21,7 +21,7 @@ spec:
       workingDir: /apps
       resources:
       volumeMounts:
-        - name: cli-homes
-          mountPath: /home
+        - name: git-home
+          mountPath: /root
         - name: git-projects-home
           mountPath: /apps
