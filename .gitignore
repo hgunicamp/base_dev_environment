@@ -1,5 +1,6 @@
 .vscode
 .scannerwork
+bin/.env.sonar
 cli_homes
 storage_homes
 projects_home
