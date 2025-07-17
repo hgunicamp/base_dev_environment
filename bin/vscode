@@ -1,0 +1,15 @@
+#!/bin/bash
+# Use: ${command} [project_dir] [other-vscode-parameters]
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+CODE="${SCRIPT_DIR}/../Progs/VSCode-linux-x64/bin/code"
+
+if [[ "$1" != "" ]] && [[ -d "${SCRIPT_DIR}/../projects_home/${1}" ]]; then
+    PROJECT_DIR="${SCRIPT_DIR}/../projects_home/${1}"
+    shift 1
+else
+    PROJECT_DIR="${SCRIPT_DIR}/.."
+fi
+
+EXTENSIONS_DIR="${PROJECT_DIR}/.vscode/extensions"
+${CODE} --extensions-dir "${EXTENSIONS_DIR}" "$@" "${PROJECT_DIR}"
