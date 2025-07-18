@@ -21,6 +21,7 @@ done
 # Installing resources
 RESOURCES=(
   "git_cli_pod"
+  "compilers_cli_pod"
   "gitea_server_pod"
   "sonarqube_server_pod"
   "gitea_server_service"

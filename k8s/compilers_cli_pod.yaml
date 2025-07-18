@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: compilers-cli
+  labels:
+    app: compilers_cli
+spec:
+  volumes:
+    - name: compilers-home
+      hostPath:
+        path: /cli_homes/compilers_home
+    - name: compilers-projects-home
+      hostPath:
+        path: /projects_home
+  containers:
+    - name: compilers-cli
+      image: localhost/compilers_cli:latest
+      imagePullPolicy: Never
+      command: ["tail"]
+      args: ["-f", "/dev/null"]
+      workingDir: /apps
+      resources:
+      volumeMounts:
+        - name: compilers-home
+          mountPath: /root
+        - name: compilers-projects-home
+          mountPath: /apps
